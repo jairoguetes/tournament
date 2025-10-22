@@ -1,0 +1,37 @@
+.input-wrapper {
+  background-color: white;
+  width: 100%;
+  border-radius: 0.5rem;
+  height: 3rem;
+  padding: 0 1rem;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+}
+
+input{
+    background-color: transparent;
+    font-family: 'NJNaruto', cursive, sans-serif;
+    border: none;
+    height: 80%;
+    font-size: 1.25rem;
+    width: 100%;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+
+}
+
+input:focus{
+    outline: none;
+    flex-grow: 1;
+}
+
+
+.search-logo{
+    height: 1.5rem;
+    width: auto;
+    margin-right: 10px;
+}
+
+

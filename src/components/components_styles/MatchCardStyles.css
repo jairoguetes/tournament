@@ -1,0 +1,203 @@
+
+.match-card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--border-color);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.match-id {
+    position: absolute;
+    top: 4px;
+    left: 8px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #adb5bd;
+}
+
+.match-card .match-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.match-card.empty-match {
+    background-color: #e9ecef;
+    text-align: center;
+    padding: 2rem 1rem;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.fighter-slot {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.fighter-slot.slot-a {
+    border-bottom: 1px dashed var(--border-color);
+    border-radius: 0.75rem 0.75rem 0 0;
+}
+.fighter-slot.slot-b {
+    border-radius: 0 0 0.75rem 0.75rem;
+}
+
+.fighter-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  filter: saturate(0.8);
+  opacity: 0.15;
+}
+
+.fighter-name {
+  font-weight: bold;
+  font-size: 1rem;
+  z-index: 2;
+  position: relative;
+  padding-left: 0.5rem;
+  color: var(--text-dark);
+}
+
+.match-controls {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.simulate-button {
+  width: 100%;
+  padding: 0.6rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(45deg, var(--naruto-orange), var(--naruto-orange-dark));
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.simulate-button:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-md);
+}
+
+.waiting-text {
+    font-size: 0.8rem;
+    color: var(--loser-gray);
+}
+
+
+.played-match {
+    border-color: var(--leaf-green);
+}
+
+.fighter-slot.is-winner {
+    background-color: var(--winner-gold);
+}
+
+.fighter-slot.is-winner .fighter-image {
+    opacity: 0.2;
+    filter: saturate(1);
+}
+.fighter-slot.is-winner .fighter-name {
+    color: var(--text-dark);
+}
+
+
+.fighter-slot:not(.is-winner) {
+    background-color: #e9ecef;
+}
+.fighter-slot:not(.is-winner) .fighter-image {
+    filter: grayscale(100%);
+    opacity: 0.1;
+}
+.fighter-slot:not(.is-winner) .fighter-name {
+    color: var(--loser-gray);
+    text-decoration: line-through;
+}
+
+.match-status {
+    padding: 0.5rem;
+    text-align: center;
+    background-color: var(--leaf-green-light);
+}
+.status-text {
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: var(--leaf-green);
+    text-transform: uppercase;
+    display: block;
+}
+.winner-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+
+
+.match-card:not(.final-match) {
+  position: relative;
+}
+
+.match-card:not(.final-match)::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -1rem; 
+  width: 1rem; 
+  height: 2px;
+  background-color: #adb5bd;
+}
+
+.round-column:not(:last-child) .match-card:nth-child(odd)::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -2rem;
+    height: calc(50% + 2rem);
+    width: 2px;
+    background-color: #adb5bd;
+    transform: translateY(-100%);
+    border-radius: 2px;
+    border-top: 2px solid #adb5bd;
+}
+
+.match-card {
+  width: 100%;
+  max-width: 300px; 
+}
+
+.fighter-name {
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.winner-name {
+    font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+    .fighter-name {
+        font-size: 1.1rem; 
+    }
+    .winner-name {
+        font-size: 1.25rem;
+    }
+    .match-card {
+        max-width: 350px; 
+    }
+}

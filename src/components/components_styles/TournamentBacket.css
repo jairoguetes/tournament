@@ -1,0 +1,215 @@
+/*
+  ===============================
+  1. Tournament Phase Container 
+  ===============================
+*/
+.tournament-phase-container {
+    max-width: 100%;
+    overflow-x: auto; 
+    padding: 1rem 0;
+    overscroll-behavior-x: contain; 
+}
+
+/*
+  ==============================
+  2. Tournament Root Container 
+  ==============================
+*/
+.tournament-root-container {
+  padding: 1rem; 
+  background-color: #c4ae72; 
+  border-radius: var(--border-radius-lg, 1rem);
+  box-shadow: var(--shadow-lg);
+  margin: 1rem auto;
+  min-width: 0;
+  width: auto;
+}
+
+.tournament-title {
+  font-size: clamp(1.75rem, 5vw, 2.25rem); 
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/*
+  ===================
+  3. Bracket Grid 
+  ===================
+  
+*/
+.bracket-grid {
+  display: grid;
+  align-items: center;
+  gap: 1.5rem 0.5rem; 
+}
+
+
+.bracket-grid-8-mode { grid-template-columns: repeat(4, 1fr); } 
+.bracket-grid-4-mode { grid-template-columns: repeat(3, 1fr); } 
+.bracket-grid-2-mode { grid-template-columns: repeat(2, 1fr); } 
+
+.round-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  gap: 1.5rem; 
+}
+
+.round-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--naruto-blue);
+}
+
+/*
+  ====================
+  4. Champion Card
+  ====================
+*/
+.champion-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.champion-card {
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-lg);
+  background-color: white;
+  border: 4px solid var(--winner-gold);
+  text-align: center;
+}
+
+.champion-image {
+  width: 6rem;
+  aspect-ratio: 1 / 1; 
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--naruto-orange);
+}
+
+.champion-name {
+  font-size: clamp(1.25rem, 4vw, 1.75rem); 
+  font-weight: 800;
+  color: var(--naruto-blue);
+}
+
+.champion-placeholder {
+  text-align: center;
+  color: var(--text-dark);
+  font-weight: 600;
+  padding: 2rem 0;
+}
+
+/*
+  ====================
+  5. Reset Button
+  ====================
+*/
+.reset-button-wrapper {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.reset-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #dc3545; 
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  transition: all 150ms ease-in-out;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+}
+
+.reset-button:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
+
+
+/*
+  ==============================================
+  6. CLASS FOR MOBILE VERTICAL VIEW 
+  ==============================================
+*/
+.mobile-bracket-vertical {
+    display: none; 
+    width: 100%;
+}
+.mobile-bracket-vertical .round-column {
+    width: 100%;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+.mobile-bracket-vertical .champion-column {
+    margin-top: 2rem;
+}
+
+
+/*
+  ===========================
+  MEDIA QUERY: MOBILE VIEW 
+  ===========================
+*/
+@media (max-width: 767px) {
+    
+    .bracket-grid {
+        display: none !important; 
+    }
+
+    .mobile-bracket-vertical {
+        display: block; 
+    }
+    
+    .tournament-phase-container {
+        overflow-x: hidden; 
+        padding: 1rem 0.5rem; 
+    }
+    
+    .champion-image {
+        width: 4rem; 
+        height: 4rem;
+        margin: 0 auto 0.5rem;
+    }
+    .champion-name {
+        font-size: 1.4rem;
+    }
+}
+
+
+/*
+  ============================
+  MEDIA QUERY: Large Screens 
+  ============================
+*/
+@media (min-width: 768px) {
+    
+    .mobile-bracket-vertical {
+        display: none;
+    }
+
+    .bracket-grid {
+        display: grid;
+        gap: 1rem 2rem;
+    }
+    
+    .tournament-root-container {
+        min-width: 750px; 
+        padding: 1.5rem;
+    }
+    
+    .round-column {
+        gap: 2rem;
+    }
+}
