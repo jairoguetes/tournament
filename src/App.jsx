@@ -7,6 +7,7 @@ import { TournamentBracket } from './components/TournamentBracket';
 import { TOURNAMENT_MODES } from './utils/constants';
 import { createFighterObject } from './utils/tournamentLogic';
 import { ThemeToggle } from './components/ThemeToggle';
+import njNarutoFont from './assets/fonts/njnaruto.ttf'; 
 
 const BRACKET_STORAGE_KEY = 'narutoTournamentBracket';
 const FIGHTERS_STORAGE_KEY = 'narutoSelectedFighters';
@@ -59,6 +60,27 @@ function App() {
   // 2. useEffect for SAVING to localStorage
 
   // Effect to save the BRACKET whenever it changes
+  useEffect(() => {
+    // Check if the font has already been injected to prevent duplicates
+    if (!document.getElementById('nj-naruto-font-style')) {
+        
+        // Use the imported variable which holds the correct, bundled URL
+        const fontFaceStyle = `
+            @font-face {
+                font-family: 'NJNaruto';
+                src: url('${njNarutoFont}') format('truetype');
+                font-weight: normal; 
+                font-style: normal;
+            }
+        `;
+
+        const styleElement = document.createElement('style');
+        styleElement.id = 'nj-naruto-font-style'; // Give it an ID for checking
+        styleElement.textContent = fontFaceStyle;
+        document.head.appendChild(styleElement);
+    }
+  }, []);
+
   useEffect(() => {
     if (bracket) {
       localStorage.setItem(BRACKET_STORAGE_KEY, JSON.stringify(bracket));
